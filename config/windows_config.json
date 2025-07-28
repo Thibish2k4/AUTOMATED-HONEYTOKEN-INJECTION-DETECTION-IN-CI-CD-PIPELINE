@@ -1,0 +1,50 @@
+{
+  "rotation_interval_hours": 24,
+  "pipeline_stages": {
+    "build": {
+      "strategy": "powershell",
+      "target_files": ["scripts\\build.ps1", "C:\\temp\\build.ps1"],
+      "token_types": ["azure_token", "docker_token", "powershell_var"],
+      "fingerprint_resistance": true,
+      "replicas": 2
+    },
+    "test": {
+      "strategy": "registry",
+      "target_files": ["config\\test.json", "C:\\temp\\test.sql"],
+      "token_types": ["sql_connection", "database_url", "registry_key"],
+      "adaptive_structure": true,
+      "containers": 1
+    },
+    "deploy": {
+      "strategy": "windows_service",
+      "target_files": ["azure-pipelines.yml", "scripts\\deploy.ps1"],
+      "token_types": ["api_key", "azure_token", "windows_service"],
+      "fingerprint_resistance": true,
+      "services": ["web_service", "api_service"]
+    }
+  },
+  "alert_channels": {
+    "console": true,
+    "windows_toast": true,
+    "windows_event_log": true,
+    "email": "security@company.com"
+  },
+  "monitoring": {
+    "ai_enhanced": true,
+    "anomaly_detection": true,
+    "behavioral_analysis": true,
+    "pattern_recognition": true,
+    "windows_event_log": true,
+    "registry_monitoring": true,
+    "process_monitoring": true,
+    "powershell_monitoring": true,
+    "network_monitoring": true
+  },
+  "research_enhancements": {
+    "msaad_fingerprint_resistance": true,
+    "saleh_ai_anomaly_detection": true,
+    "reti_context_awareness": true,
+    "flora_microservice_scaling": true,
+    "database_hierarchical_management": true
+  }
+}

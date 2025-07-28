@@ -1,0 +1,176 @@
+{
+  "exported_at": "2025-07-24T08:40:59.771041",
+  "tool_version": "1.0.0",
+  "configuration": {
+    "rotation_interval_hours": 24,
+    "pipeline_stages": {
+      "build": {
+        "strategy": "powershell",
+        "target_files": [
+          "scripts\\build.ps1",
+          "C:\\temp\\build.ps1"
+        ],
+        "token_types": [
+          "azure_token",
+          "docker_token",
+          "powershell_var"
+        ],
+        "fingerprint_resistance": true,
+        "replicas": 2
+      },
+      "test": {
+        "strategy": "registry",
+        "target_files": [
+          "config\\test.json",
+          "C:\\temp\\test.sql"
+        ],
+        "token_types": [
+          "sql_connection",
+          "database_url",
+          "registry_key"
+        ],
+        "adaptive_structure": true,
+        "containers": 1
+      },
+      "deploy": {
+        "strategy": "windows_service",
+        "target_files": [
+          "azure-pipelines.yml",
+          "scripts\\deploy.ps1"
+        ],
+        "token_types": [
+          "api_key",
+          "azure_token",
+          "windows_service"
+        ],
+        "fingerprint_resistance": true,
+        "services": [
+          "web_service",
+          "api_service"
+        ]
+      }
+    },
+    "alert_channels": {
+      "console": true,
+      "windows_toast": true,
+      "windows_event_log": true,
+      "email": "security@company.com"
+    },
+    "monitoring": {
+      "ai_enhanced": true,
+      "anomaly_detection": true,
+      "behavioral_analysis": true,
+      "pattern_recognition": true,
+      "windows_event_log": true,
+      "registry_monitoring": true,
+      "process_monitoring": true,
+      "powershell_monitoring": true,
+      "network_monitoring": true
+    },
+    "research_enhancements": {
+      "msaad_fingerprint_resistance": true,
+      "saleh_ai_anomaly_detection": true,
+      "reti_context_awareness": true,
+      "flora_microservice_scaling": true,
+      "database_hierarchical_management": true
+    }
+  },
+  "status": {
+    "platform": "Windows",
+    "active_tokens": 0,
+    "active_token_ids": [],
+    "monitoring_active": false,
+    "rotation_enabled": true,
+    "research_enhancements": {
+      "fingerprint_resistance": 0,
+      "ai_enhanced_detection": true,
+      "context_aware_generation": 0,
+      "scaling_support": 0,
+      "hierarchical_management": true
+    },
+    "windows_features": {
+      "registry_integration": true,
+      "event_log_integration": true,
+      "service_integration": true,
+      "powershell_integration": true,
+      "toast_notifications": true
+    },
+    "detection_summary": {
+      "platform": "Windows",
+      "total_detections": 0,
+      "triggered_tokens": 0,
+      "total_monitored_tokens": 0,
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0
+      },
+      "confidence_breakdown": {
+        "HIGH": 0,
+        "MEDIUM": 0,
+        "LOW": 0
+      },
+      "pattern_analysis": {},
+      "ai_enhancements": {
+        "anomaly_detection_active": true,
+        "pattern_recognition_active": true,
+        "behavioral_analysis_active": true,
+        "research_implementations": [
+          "saleh_ai_anomaly_detection_2024",
+          "msaad_fingerprint_resistance_2023",
+          "reti_context_awareness_2024",
+          "flora_microservice_scaling_2023",
+          "database_paper_hierarchical_2024"
+        ]
+      },
+      "windows_features": {
+        "event_log_integration": true,
+        "registry_monitoring": true,
+        "process_monitoring": true,
+        "powershell_monitoring": true,
+        "network_analysis": true,
+        "service_integration": true
+      },
+      "recent_detections": []
+    },
+    "referenced_papers": [
+      "Msaad et al. (2023) - Honeysweeper: Towards Stealthy Honeytoken Fingerprinting Techniques",
+      "Saleh et al. (2024) - Advancing Software Security through AI-based Anomaly Detection",
+      "Reti et al. (2024) - Act as a Honeytoken Generator! Investigation into Generation with LLMs",
+      "Flora et al. (2023) - Intrusion Detection for Scalable Microservice Applications",
+      "Various Authors (2024) - Generation and deployment of honeytokens in relational databases"
+    ]
+  },
+  "pipeline_configs": {
+    "github_actions": {
+      "name": "Deploy Honeytokens",
+      "on": [
+        "push",
+        "pull_request"
+      ],
+      "jobs": {
+        "deploy": {
+          "runs-on": "windows-latest",
+          "steps": [
+            {
+              "uses": "actions/checkout@v2"
+            },
+            {
+              "name": "Setup Python",
+              "uses": "actions/setup-python@v2"
+            },
+            {
+              "name": "Install dependencies",
+              "run": "pip install -r requirements.txt"
+            },
+            {
+              "name": "Deploy honeytokens",
+              "run": "python src/windows_cli.py deploy --stage build"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
