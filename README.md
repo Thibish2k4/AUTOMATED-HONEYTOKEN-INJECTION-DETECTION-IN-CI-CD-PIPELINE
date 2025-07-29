@@ -70,7 +70,7 @@ python src/windows_cli.py simulate-attack
 - **Configuration Files**: JSON, XML, YAML injection
 
 ### 🔍 **Detection & Monitoring**
-- **AI-Enhanced Detection**: Machine learning anomaly detection
+- **Enhanced Detection**: Advanced anomaly detection
 - **Windows Event Log**: Native logging integration
 - **Real-time Alerts**: Email, Slack, Teams, webhook notifications
 - **PowerShell History**: Command monitoring
@@ -356,7 +356,6 @@ python -m pytest tests/ -v
 ### Version 2.0 (Q2 2024)
 - [ ] Docker container support
 - [ ] Linux compatibility layer
-- [ ] Machine learning model improvements
 - [ ] Advanced visualization dashboard
 - [ ] API endpoint exposure
 
