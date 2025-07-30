@@ -94,7 +94,7 @@ graph TB
     
     A --> F[Token Types<br/>• API Keys<br/>• JWT Tokens<br/>• Database URLs]
     B --> G[Injection Points<br/>• PowerShell<br/>• Registry<br/>• SQL Server]
-    C --> H[Detection Methods<br/>• AI Analysis<br/>• Event Logs<br/>• Process Monitor]
+    C --> H[Detection Methods<br/>• Advanced Analysis<br/>• Event Logs<br/>• Process Monitor]
     D --> I[Pipeline Integration<br/>• Build Stage<br/>• Test Stage<br/>• Deploy Stage]
 ```
 
